@@ -41,7 +41,7 @@ export default class Card {
   delete() {
     this.card.remove();
   }
-  
+
   generateId() {
     const id = Math.floor(Math.random() * 1000000);
     if (this.idReserv.includes(id)) {
