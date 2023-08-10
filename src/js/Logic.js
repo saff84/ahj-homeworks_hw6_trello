@@ -131,8 +131,11 @@ export default class Logic {
   }
 
   onMouseOver(e) {
-    this.actualElement.style.left = `${e.pageX - this.cursorX}px`;
-    this.actualElement.style.top = `${e.pageY - this.cursorY}px`;
+    this.actualElement.style.left = e.clientX + `px`;
+    this.actualElement.style.top = e.clientY + `px`;
+
+    // this.actualElement.style.left = `${e.pageX - this.cursorX}px`;
+    // this.actualElement.style.top = `${e.pageY - this.cursorY}px`;
 
     this.actualElementClone = this.actualElement.cloneNode(true);
 
@@ -208,10 +211,7 @@ export default class Logic {
         document.body.style.cursor = "auto";
         this.actualElementClone.removeEventListener("mouseup", this.onMouseUp);
 
-        document.documentElement.removeEventListener(
-          "mouseover",
-          this.onMouseOver
-        );
+        document.documentElement.removeEventListener("mouseover", this.onMouseOver);
         return;
       }
 
@@ -220,10 +220,7 @@ export default class Logic {
 
       document.body.style.cursor = "auto";
       this.actualElementClone.removeEventListener("mouseup", this.onMouseUp);
-      document.documentElement.removeEventListener(
-        "mouseover",
-        this.onMouseOver
-      );
+      document.documentElement.removeEventListener("mouseover", this.onMouseOver);
     }
   }
 }
