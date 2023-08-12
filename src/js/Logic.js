@@ -139,8 +139,7 @@ export default class Logic {
 
     this.actualElementClone = this.actualElement.cloneNode(true);
 
-    this.actualElementClone.querySelector(".card_input").className =
-      "card_clone_input";
+    this.actualElementClone.querySelector(".card_input").className = "card_clone_input";
     this.actualElementClone.className = "card_clone";
 
     const { target } = e;
@@ -149,9 +148,8 @@ export default class Logic {
       if (document.querySelector(".card_clone") !== null) {
         document.querySelector(".card_clone").remove();
       }
-      target
-        .closest(".cards")
-        .insertBefore(this.actualElementClone, target.closest(".card_content"));
+      target.closest(".cards").insertBefore(this.actualElementClone, target.closest(".card_content"));
+
     } else if (targetColumn !== null) {
       if (document.querySelector(".card_clone") !== null) {
         document.querySelector(".card_clone").remove();
@@ -211,7 +209,10 @@ export default class Logic {
         document.body.style.cursor = "auto";
         this.actualElementClone.removeEventListener("mouseup", this.onMouseUp);
 
-        document.documentElement.removeEventListener("mouseover", this.onMouseOver);
+        document.documentElement.removeEventListener(
+          "mouseover",
+          this.onMouseOver
+        );
         return;
       }
 
@@ -220,7 +221,10 @@ export default class Logic {
 
       document.body.style.cursor = "auto";
       this.actualElementClone.removeEventListener("mouseup", this.onMouseUp);
-      document.documentElement.removeEventListener("mouseover", this.onMouseOver);
+      document.documentElement.removeEventListener(
+        "mouseover",
+        this.onMouseOver
+      );
     }
   }
 }
