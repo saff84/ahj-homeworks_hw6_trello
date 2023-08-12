@@ -122,8 +122,6 @@ export default class Logic {
 
   eventCardMove(e) {
     const elemPosition = this.actualElement.getBoundingClientRect();
-    this.cursorX = e.clientX - elemPosition.left;
-    this.cursorY = e.clientY - elemPosition.top;
     this.actualElement.classList.add("dragged");
     document.body.style.cursor = "grabbing";
 
@@ -133,9 +131,6 @@ export default class Logic {
   onMouseOver(e) {
     this.actualElement.style.left = e.clientX + `px`;
     this.actualElement.style.top = e.clientY + `px`;
-
-    // this.actualElement.style.left = `${e.pageX - this.cursorX}px`;
-    // this.actualElement.style.top = `${e.pageY - this.cursorY}px`;
 
     this.actualElementClone = this.actualElement.cloneNode(true);
 
