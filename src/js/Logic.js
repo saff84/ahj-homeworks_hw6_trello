@@ -122,8 +122,8 @@ export default class Logic {
 
   eventCardMove(e) {
     const elemPosition = this.actualElement.getBoundingClientRect();
-    this.cursorX = e.clientX - elemPosition.left;
-    this.cursorY = e.clientY - elemPosition.top;
+    this.cursorX = e.offsetX;
+    this.cursorY = e.offsetY;
     this.actualElement.classList.add("dragged");
     document.body.style.cursor = "grabbing";
 
