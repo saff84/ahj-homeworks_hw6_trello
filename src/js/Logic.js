@@ -125,8 +125,6 @@ export default class Logic {
     this.cursorY = e.offsetY;
     this.actualElement.classList.add("dragged");
     document.body.style.cursor = "grabbing";
-
-
     document.documentElement.addEventListener("mouseover", this.onMouseOver);
   }
 
@@ -134,15 +132,10 @@ export default class Logic {
     const { pageX, pageY } = e;
     this.actualElement.style.left = `${pageX - this.cursorX}px`
     this.actualElement.style.top = `${pageY - this.cursorY}px`
-
-
-
     this.actualElementClone = this.actualElement.cloneNode(true);
-
     this.actualElementClone.querySelector(".card_input").className =
       "card_clone_input";
     this.actualElementClone.className = "card_clone";
-
     const { target } = e;
     const targetColumn = target.closest(".column-item");
     if (target.closest(".card_content")) {
