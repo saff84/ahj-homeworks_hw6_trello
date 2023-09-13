@@ -127,11 +127,11 @@
     position: absolute;
     z-index: 999;
     pointer-events: none;
-    max-width: 400px;
+    max-width: 460px;
     cursor: grabbing;
     cursor: -moz-grabbing;
     cursor: -webkit-grabbing;
-    transform: rotate(-5deg);
+    /* transform: rotate(-5deg); */
 }
 
 .card_clone {

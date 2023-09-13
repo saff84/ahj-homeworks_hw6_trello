@@ -121,18 +121,21 @@ export default class Logic {
   }
 
   eventCardMove(e) {
-    const elemPosition = this.actualElement.getBoundingClientRect();
-    this.cursorX = e.clientX;
-    this.cursorY = e.clientY;
+    this.cursorX = e.offsetX;
+    this.cursorY = e.offsetY;
     this.actualElement.classList.add("dragged");
     document.body.style.cursor = "grabbing";
+
 
     document.documentElement.addEventListener("mouseover", this.onMouseOver);
   }
 
   onMouseOver(e) {
-    this.actualElement.style.left = e.clientX + `px`;
-    this.actualElement.style.top = e.clientY + `px`;
+    const { pageX, pageY } = e;
+    this.actualElement.style.left = `${pageX - this.cursorX}px`
+    this.actualElement.style.top = `${pageY - this.cursorY}px`
+
+
 
     this.actualElementClone = this.actualElement.cloneNode(true);
 
