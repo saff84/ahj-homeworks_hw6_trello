@@ -130,8 +130,8 @@ export default class Logic {
 
   onMouseOver(e) {
     const { pageX, pageY } = e;
-    this.actualElement.style.left = `${pageX - this.cursorX}px`
-    this.actualElement.style.top = `${pageY - this.cursorY}px`
+    this.actualElement.style.left = `${pageX - this.cursorX}px`;
+    this.actualElement.style.top = `${pageY - this.cursorY}px`;
     this.actualElementClone = this.actualElement.cloneNode(true);
     this.actualElementClone.querySelector(".card_input").className =
       "card_clone_input";
